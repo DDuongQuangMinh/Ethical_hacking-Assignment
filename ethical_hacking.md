@@ -24,9 +24,6 @@ As organizations continue to store vast amounts of sensitive data, Ethical Hacki
 4. Maintaining access: Enhancing access by deploying backdoor, rootkits, or others stealth techiques can avoid detection.
 5. Cover track: Clearing track to evade detection.
 
-**Object of the report**
-The object of this report to analyze these five phases from a defender's perspective. By examining each phase from a defensive standpoint, this report provides insights into effective cybersecurity strategies for protecting digital environments.
-
 # **2.Main body**
 ##  2.1 What is Ethical Hacking?
 ### 2.1.1 Introduction to Ethical Hacking
@@ -82,7 +79,13 @@ Domain Controllers work as a brain controlling AD DS including security policies
 - FSMO Roles: A subset of DCs are assigned Flexible Single Master Operations (FSMO) roles, which are critical for certain operations (e.g., schema updates, RID assignment).
 
 #### 2.2.2.3 Organizational Units (OUs).
-Organizational Units (OUs) has the lowest rank in the decentrallization system of AD and the smallest administrative units in Domain that act as a container to store directory data such as 
+Organizational Units (OUs) has the lowest rank in the decentrallization system of AD and the smallest administrative units in Domain that act as a container to store directory objects such as users, group, computers, and other components. OUs are the smallest gear in the system but also the most importaant for the system to operate smoothly and effectively.
+Purpose and Functionallity:
+- Logical Segmentation: OUs allow administrators to logically divide the directory for easier management.
+- Delegation of Administrative Control: Administrative rights can be granted on an OU level without granting full control over the entire domain.
+- Application of Group Policies: OUs serve as the primary targets for Group Policy Objects (GPOs).
+- Scalability and Flexibility: Nested OUs enable complex and hierarchical structuring.
+- Non-Security Boundary: While OUs provide administrative segmentation, they do not function as security boundaries. Access control must still be managed using permissions and group memberships.
 
 #### 2.2.2.4 Group Policy Objects (GPOs).
 
