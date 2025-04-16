@@ -65,29 +65,19 @@ In short, ethical hacker must comply with the principle to avoid leaked sensitiv
 ##  2.2 What is Active Directory(AD)?
 ### 2.2.1 Introduction to Active Directory (AD).
 Active directory is a eraction of differient hierarchies developed by Microsoft that serves as the backbone of identity and access management (IAM) in Windows-based enterprise networks, enabling administrators to manage information stored on the network such as user data, security, and distributed resources  more efficient.
+
 ### 2.2.2 Core Components of ACtive Directory.
 #### 2.2.2.1 Active Directory Domain Services (AD DS).
 A directory services knows as Active Directory Domain Services (AD DS), enabling directory data such as authentication(names, passwords, phone numbers), user logon processes, and directory searches can be stored and available across network users and administrators. In addition, AD DS improve the effectiveness in resources management and security policies.
-Function:
-- Manages user accounts, credentials, and computer objects.
-- Stores data in a hierarchical structure (domains, trees, forests).
-- Facilitates Single Sign-On (SSO) within a Windows domain.
 
 #### 2.2.2.2 Domain Controllers (DCs).
-Domain Controllers work as a brain controlling AD DS including security policies and directory data. Moreover, they approve and validate all clients and components in Windows domain network. Domain Controllers also responsible for:
-- Replication: Synchronizes directory data with other DCs to ensure consistency.
-- FSMO Roles: A subset of DCs are assigned Flexible Single Master Operations (FSMO) roles, which are critical for certain operations (e.g., schema updates, RID assignment).
+Domain Controllers work as a brain controlling AD DS including security policies and directory data. Moreover, they approve and validate all clients and components in Windows domain network.
 
 #### 2.2.2.3 Organizational Units (OUs).
 Organizational Units (OUs) has the lowest rank in the decentrallization system of AD and the smallest administrative units in Domain that act as a container to store directory objects such as users, group, computers, and other components. OUs are the smallest gear in the system but also the most importaant for the system to operate smoothly and effectively.
-Purpose and Functionallity:
-- Logical Segmentation: OUs allow administrators to logically divide the directory for easier management.
-- Delegation of Administrative Control: Administrative rights can be granted on an OU level without granting full control over the entire domain.
-- Application of Group Policies: OUs serve as the primary targets for Group Policy Objects (GPOs).
-- Scalability and Flexibility: Nested OUs enable complex and hierarchical structuring.
-- Non-Security Boundary: While OUs provide administrative segmentation, they do not function as security boundaries. Access control must still be managed using permissions and group memberships.
 
 #### 2.2.2.4 Group Policy Objects (GPOs).
+
 
 ### 2.2.3 Security and Authentication.
 
