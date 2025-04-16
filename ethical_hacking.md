@@ -1,14 +1,16 @@
-title: "Ethical Hacking Assignment"
-author: "HAN23080181
-         HAN23080514
-         HAN23100188
-         HAN23100107
-         HAN23080227"
-date: "March 30, 2025"
-wrap: preserve
-geometry: a4paper
-fontsize: 12pt
 ---
+title: "Ethical Hacking Assignment"
+author: [HAN23080181, HAN23080514, HAN23100188, HAN23100107, HAN23080227]
+date: '2025-03-30'
+toc: true
+toc-own-page: true
+lang: "en"
+titlepage: true,
+titlepage-text-color: "FFFFFF"
+titlepage-rule-color: "360049"
+titlepage-rule-height: 0
+titlepage-background: "background.pdf"
+...
 
 # **Title: Defensive Strategies Against the 5 Phases of Ethical Hacking: A Security Perspective**
 
@@ -100,6 +102,9 @@ If settings conflict, those applied later in the sequence (e.g., at the OU level
 
 
 ##  2.3 What is HoneyPot?
+
+Honeypots are fake services designed to be decoys to attract, surveil and identify potential threat actors. These decoys are deliberately vulnerable and exposed by design. (Crowdstrike)
+
 ##  2.4 Reconnaissance
 ##  2.5 Scanning and Enumeration
 ##  2.6 Gaining access
@@ -116,5 +121,6 @@ If settings conflict, those applied later in the sequence (e.g., at the OU level
 - Stuttard, D., & Pinto, M. (2011). The Web Application Hacker’s Handbook: Finding and Exploiting Security Flaws (2nd ed.). Wiley Publishing.
 - Weidman, G. (2014). Penetration Testing: A Hands-On Introduction to Hacking. No Starch Press.
 - Microsoft (n.d.) Active Directory Domain Services overview. Microsoft Learn. Available at: https://learn.microsoft.com/vi-vn/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview (Accessed: 13 April 2025).
+- CrowdStrike (n.d.) What is a honeypot in cybersecurity?, CrowdStrike. Available at: https://www.crowdstrike.com/en-us/cybersecurity-101/exposure-management/honeypots/ (Accessed: 16 April 2025). 
 
 # **7.Appendices**
