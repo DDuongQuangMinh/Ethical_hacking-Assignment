@@ -77,9 +77,27 @@ Domain Controllers work as a brain controlling AD DS including security policies
 Organizational Units (OUs) has the lowest rank in the decentrallization system of AD and the smallest administrative units in Domain that act as a container to store directory objects such as users, group, computers, and other components. OUs are the smallest gear in the system but also the most importaant for the system to operate smoothly and effectively.
 
 #### 2.2.2.4 Group Policy Objects (GPOs).
+Group Policy Objects (GPOs) is a set of setting that implemented defense policies to Active Directory environment in order to manage thousands of users and devices across Directory domain. Thus, enforcing organizational standards and security compliance.
 
+Purpose and Application:
+- Centralized Configuration Management: Allow administrators to implement regular configurations to users have been created in the environment in a defined scope (site, domain, or OU).
+- User Configuration Settings: Including guiding related to AD environment such as desktop environment, network connections, software installation, folder redirection, and logon/logoff scripts.
+- Computer Configuration Settings: 
+- Security Enforcement: Including policies for startup/shutdown scripts, Windows security settings, registry settings, and service control.
+- Software Deployment: GPOs act as a crucial part in Directory domain helping automate the installation, update, or removal of software applications across multiple machines. 
+- Loopback Processing: Useful in environments like kiosks or classrooms, where a user’s settings are overridden by the computer’s GPO regardless of who logs in.
+
+GPO Processing Order (LSDOU):
+When multiple GPOs are in place, they are applied in the following order:
+1. Local GPO
+2. Site-level GPOs
+3. Domain-level GPOs
+4. OU-level GPOs (from parent to child)
+
+If settings conflict, those applied later in the sequence (e.g., at the OU level) take precedence.
 
 ### 2.2.3 Security and Authentication.
+
 
 ##  2.3 What is HoneyPot?
 ##  2.4 Reconnaissance
