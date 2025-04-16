@@ -84,6 +84,9 @@ Organizational Units (OUs) has the lowest rank in the decentrallization system o
 ### 2.2.3 Security and Authentication.
 
 ##  2.3 What is HoneyPot?
+
+Honeypots are fake services designed to be decoys to attract, surveil and identify potential threat actors. These decoys are deliberately vulnerable and exposed by design. (Crowdstrike)
+
 ##  2.4 Reconnaissance
 ##  2.5 Scanning and Enumeration
 ##  2.6 Gaining access
@@ -100,5 +103,6 @@ Organizational Units (OUs) has the lowest rank in the decentrallization system o
 - Stuttard, D., & Pinto, M. (2011). The Web Application Hacker’s Handbook: Finding and Exploiting Security Flaws (2nd ed.). Wiley Publishing.
 - Weidman, G. (2014). Penetration Testing: A Hands-On Introduction to Hacking. No Starch Press.
 - Microsoft (n.d.) Active Directory Domain Services overview. Microsoft Learn. Available at: https://learn.microsoft.com/vi-vn/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview (Accessed: 13 April 2025).
+- CrowdStrike (n.d.) What is a honeypot in cybersecurity?, CrowdStrike. Available at: https://www.crowdstrike.com/en-us/cybersecurity-101/exposure-management/honeypots/ (Accessed: 16 April 2025). 
 
 # **7.Appendices**
