@@ -1,14 +1,16 @@
-title: "Ethical Hacking Assignment"
-author: "HAN23080181
-         HAN23080514
-         HAN23100188
-         HAN23100107
-         HAN23080227"
-date: "March 30, 2025"
-wrap: preserve
-geometry: a4paper
-fontsize: 12pt
 ---
+title: "Ethical Hacking Assignment"
+author: [HAN23080181, HAN23080514, HAN23100188, HAN23100107, HAN23080227]
+date: '2025-03-30'
+toc: true
+toc-own-page: true
+lang: "en"
+titlepage: true,
+titlepage-text-color: "FFFFFF"
+titlepage-rule-color: "360049"
+titlepage-rule-height: 0
+titlepage-background: "background.pdf"
+...
 
 # **Title: Defensive Strategies Against the 5 Phases of Ethical Hacking: A Security Perspective**
 
