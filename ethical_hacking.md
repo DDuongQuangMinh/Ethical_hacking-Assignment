@@ -99,6 +99,22 @@ When multiple GPOs are in place, they are applied in the following order:
 If settings conflict, those applied later in the sequence (e.g., at the OU level) take precedence.
 
 ### 2.2.3 Security and Authentication.
+Active Directory (AD) own strong security and authentication through various network protocols, including the three most important protocols are Kerberos, LDAP, and NTML - collectively ensure that users and devices are authenticated securely and efficiently, enabling access control across an organization’s infrastructure.
+
+#### 2.2.3.1 Kerberos Authentication Protocol.
+Kerberos is the essential protocol of Active Directory in Domain environments, acting as a mediator for trusted hosts and untrusted network to secure communication between two parties such as authenticating service.
+
+Key features:
+- Ticket-Based Authentication: Key Distribution Center (KDC), which is a part of domain controller, providing ticket issued for Kerberos to operate.
+- Mutual Authentication: Authentication is performed in parallel between client and server, in order to mitigate the risk of impersonation attacks.
+- Time-Sensitive Tokens: Kerberos tickets have expiration timestamps, reducing the risk of token reuse or replay attacks.
+
+#### 2.2.3.2 LDAP (Lightweight Directory Access Protocol).
+
+
+Key Functions in AD:
+
+#### 2.2.3.3 NTLM (NT LAN Manager).
 
 
 ##  2.3 What is HoneyPot?
