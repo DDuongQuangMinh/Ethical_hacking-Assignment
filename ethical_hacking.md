@@ -118,7 +118,7 @@ Key Functions in AD:
 - Directory Modification: Using LDAP to add, delete, or modify AD objects.
 
 #### 2.2.3.3 NTLM (NT LAN Manager).
-
+NTML is one of the old protocols applied before Kerboros.
 
 ##  2.3 What is HoneyPot?
 
