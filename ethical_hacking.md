@@ -118,13 +118,22 @@ Key Functions in AD:
 - Directory Modification: Using LDAP to add, delete, or modify AD objects.
 
 #### 2.2.3.3 NTLM (NT LAN Manager).
-NTML is one of the old protocols applied before Kerboros.
+NTML is one of the old protocols applied before Kerboros. While the modern Active Directory environment is still priority Kerberos rather than NTML, they still use NTML to help old systems do not support Kerberos compatible with the environment.
+
+NTLM Characteristics:
+- Uses a challenge-response mechanism for authentication.
+- Does not provide mutual authentication, making it vulnerable to relay attacks.
+- Still used in workgroup environments, local logons, and when Kerberos is unavailable.
 
 ##  2.3 What is HoneyPot?
 
 Honeypots are fake services designed to be decoys to attract, surveil and identify potential threat actors. These decoys are deliberately vulnerable and exposed by design. (Crowdstrike)
 
 ##  2.4 Reconnaissance
+Reconaissance is the first step of cyberattack where threat actors collect information about target without direct interaction. In term of defensive side, security team will try to reduce the available data of system can be exposed to public by deploying early detection mechanisms such as honeypot sand monitoring via Wazuh.
+
+
+
 ##  2.5 Scanning and Enumeration
 ##  2.6 Gaining access
 ##  2.7 Maintaining access
