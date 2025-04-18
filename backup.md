@@ -14,13 +14,14 @@ titlepage-background: "background.pdf"
 
 # **Title: Defensive Strategies Against the 5 Phases of Ethical Hacking: A Security Perspective**
 
+
 # **1.Introduction**
-Cybersecurity threats are one of the major problems in different countries including strong technological thriving countries such as United State, United Kingdom, and Russia, which target individual, businesses, and governments, causing financial losses, reputational damage, and operational disruptions. 
+Cybersecurity threats are one of the major problems in different countries including strong technological thriving countries such as United State, United Kingdom, and Russia, which target individual, businesses, and governments, causing financial losses, reputational damage, and operational disruptions.
 As organizations continue to store vast amounts of sensitive data, Ethical Hacking plays a crucial role in cybersecurity to protect the information of company and customers by simulating real-world attack to identify vulnerabilities within systems, networks, and applicators. The goal of Ethical Hacking is to understand mindset or tactic of attackers to strengthen security and implement effective countermeasures.
 
-**Ethical Hacking is structured into five stage that mimic attack circuiting:**
+**Ethical Hacking is structured into five stage that mimic attack circuition:**
 1. Reconnaissance: Collecting target data such as IP address, or network detail by scanning techniques.
-2. Scanning and Enumeration: Analysing vulnerabilities of target system using tool like Nmap and Nessus.
+2. Scanning and Enumeration: Analyzing vulnerabilities of target system using tool like Nmap and Nessus.
 3. Gaining access: Gaining unauthorized access to target system through brute-force attack, SQL injection, misconfiguration.
 4. Maintaining access: Enhancing access by deploying backdoor, rootkits, or others stealth techniques can avoid detection.
 5. Cover track: Clearing track to evade detection.
@@ -29,7 +30,7 @@ As organizations continue to store vast amounts of sensitive data, Ethical Hacki
 ##  2.1 What is Ethical Hacking?
 ### 2.1.1 Introduction to Ethical Hacking
 Ethical hacking or **penetration testing**, or **white-hat hacking**, or **offensive security testing**, is the name for the system security inspection process of an organization or government through emulating an actual attack on the system of that organization. This action is taken to examine and identify potential security weakness existing in the system that can be exploited by malicious actors.
-Ethical hacking has become an essential cornerstone in modern cybersecurity framework due to the development of cyber threats is increasingly complicated and difficult to solve, providing organizations or governments to detect and overcome potential weakness.
+Ethical hacking has become an essential cornerstones in modern cybersecurity framework due to the development of cyber threats is increasingly complicated and difficult to solve, providing organizations or governments to detect and overcome potential weakness.
 
 ### 2.1.2 Definition and Scope
 Ethical hacking is the use of exploitation techniques by ethical hacker or friendly parties in an attempt to discover, identify, understand and repair security weakness in a network, computer system, or organization's system before threat actors can exploit them.
@@ -55,7 +56,7 @@ Ethical hackers must obey the laws, consensus as well as organization policies. 
 - General Data Protection Regulation (GDPR) – European Union
 - Computer Misuse Act 1990 – United Kingdom
 
-Before the inspection was conducted, a contract also known as **Rules of Engagement (RoE) document** must be signed. This document outline:
+Before the inspection was conducted, a contract also know as **Rules of Engagement (RoE) document** must be signed. This document outline:
 - Testing scope and exclusions
 - Authorized tools and techniques
 - Testing schedule
@@ -85,7 +86,7 @@ Purpose and Application:
 - User Configuration Settings: Including guiding related to AD environment such as desktop environment, network connections, software installation, folder redirection, and logon/logoff scripts.
 - Computer Configuration Settings: 
 - Security Enforcement: Including policies for startup/shutdown scripts, Windows security settings, registry settings, and service control.
-- Software Deployment: GPOs function as a crucial part in Directory domain helping automate the installation, update, or removal of software applications across multiple machines. 
+- Software Deployment: GPOs act function as crucial part in Directory domain helping automate the installation, update, or removal of software applications across multiple machines. 
 - Loopback Processing: Useful in environments like kiosks or classrooms, where a user’s settings are overridden by the computer’s GPO regardless of who logs in.
 
 GPO Processing Order (LSDOU):
@@ -117,13 +118,33 @@ Key Functions in AD:
 - Directory Modification: Using LDAP to add, delete, or modify AD objects.
 
 #### 2.2.3.3 NTLM (NT LAN Manager).
+NTML is one of the old protocols applied before Kerboros. While the modern Active Directory environment is still priority Kerberos rather than NTML, they still use NTML to help old systems do not support Kerberos compatible with the environment.
+
+NTLM Characteristics:
+- Uses a challenge-response mechanism for authentication.
+- Does not provide mutual authentication, making it vulnerable to relay attacks.
+- Still used in workgroup environments, local logons, and when Kerberos is unavailable.
 
 ##  2.3 What is HoneyPot?
 
 Honeypots are fake services designed to be decoys to attract, surveil and identify potential threat actors. These decoys are deliberately vulnerable and exposed by design. (Crowdstrike)
 
 ##  2.4 Reconnaissance
+Reconnaissance is the first step of cyberattack where threat actors try to gather information of target's system without direct interaction. In defensive site, blue team will try to reduce exposure of sensitive data in documents or code by minimizing publicly available data and deploying early detection mechanisms such as Honeypots, Wazuh.
+
+Honeypot function as a decoy in network to distract potential attacker from essential data and machine in Directory domain. Combining Wazuh with Honeypot to analyze, correlate, and respond to these early signals. When Honeypot is being triggered, Wazuh will automate IP blocking and send real-time alerts to defenders of unauthorized access attempts
+
+This combination of deception and correlation allows defenders to detect reconnaissance activities early, manage external exposure, and engage proactively before attackers escalate their operations.
+
 ##  2.5 Scanning and Enumeration
+Scanning is the next step of cyberattack. In this phase, attackers try to identify open ports, live hosts, and services of target's system by probing the network environment.
+
+In this phase, blue team implements network segmentation, firewalls, Access Control Lists (ACLs), and protocol such as **Zero Trust** principle to limit lateral movement. The goal of these actions is to trap and monitor scanning tools such as Nmap or Masscan.
+
+Additionally, the combination between Wazuh and Honeypot enables security teams to detect known scanning behaviors, such as SYN floods or banner grabbing. When attackers attempt to scan the environments, Wazuh can automatically response to the unauthorized IP address, blocking the source IP and notify administrators.
+
+In short, thanks to Honeypot and Wazuh, Blue Teams can detect, trace, and disrupt scanning attempts early—preventing attackers from building a useful map of the network.
+
 ##  2.6 Gaining access
 ##  2.7 Maintaining access
 ##  2.8 Cover Track
@@ -138,6 +159,10 @@ Honeypots are fake services designed to be decoys to attract, surveil and identi
 - Stuttard, D., & Pinto, M. (2011). The Web Application Hacker’s Handbook: Finding and Exploiting Security Flaws (2nd ed.). Wiley Publishing.
 - Weidman, G. (2014). Penetration Testing: A Hands-On Introduction to Hacking. No Starch Press.
 - Microsoft (n.d.) Active Directory Domain Services overview. Microsoft Learn. Available at: https://learn.microsoft.com/vi-vn/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview (Accessed: 13 April 2025).
-- CrowdStrike (n.d.) What is a honeypot in cybersecurity, CrowdStrike. Available at: https://www.crowdstrike.com/en-us/cybersecurity-101/exposure-management/honeypots/ (Accessed: 16 April 2025). 
+- CrowdStrike (n.d.) What is a honeypot in cybersecurity?, CrowdStrike. Available at: https://www.crowdstrike.com/en-us/cybersecurity-101/exposure-management/honeypots/ (Accessed: 16 April 2025).
+- Wikipedia. (2024). Honeypot (computing). [online] Available at: https://en.wikipedia.org/wiki/Honeypot_(computing) [Accessed 18 Apr. 2025].
+- Wazuh. (2023). Wazuh documentation: Threat detection and response. Retrieved from https://documentation.wazuh.com/
+- MITRE ATT&CK®. (2023). Enterprise attack matrix. Retrieved from https://attack.mitre.org/
+- Offensive Security. (2024). Metasploit Unleashed: Scanning and enumeration. Retrieved from https://www.offensive-security.com/metasploit-unleashed/
 
 # **7.Appendices**
