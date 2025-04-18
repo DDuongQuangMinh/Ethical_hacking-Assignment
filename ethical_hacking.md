@@ -145,8 +145,28 @@ Additionally, the combination between Wazuh and Honeypot enables security teams 
 
 In short, thanks to Honeypot and Wazuh, Blue Teams can detect, trace, and disrupt scanning attempts early—preventing attackers from building a useful map of the network.
 
-##  2.6 Gaining access
-##  2.7 Maintaining access
+##  2.6 Initial foothold.
+
+Once the attackers had enough information, they would begin to gain foothold on the network by targeting external facing services such as RDP (Remote Desktop Protocol), Citrix, webapps, etc. In this case, the attackers managed to find an open RDP port on the external IP like the case of lapsus$. To deal with RDP abuse, this service shouldn't be open to outside in the first place, it should be hidden behind a VPN or be disabled entirely since according to Sophos, RDP is one of the most common tools attackers uses to gain access externally and move laterally within the network (John Shier, 2025). If RDP is to be opened externally, that endpoint should have it's security settings set to the max, the screen constantly screenshotted and a constant pcap packet capture of all instances. 
+
+##  2.7 Maintaining access and Lateral Movement
+
+Once the attacker had foothold, the next thing they would do is to move laterally in the network. Lateral Movement is a set of techniques and tactics attackers uses to move to a higher level targets in a network after gaining initial access. CrowdStrike. One of the first thing attackers would do to move laterally in an Active Directory environment is to enumerate the domain using Bloodhound. Bloodhound is a graphing tool created by SpecterOps to audit the active directory objects for any unintended relationships or rights that can be abused to move laterally within an environment. The first step they would do is to dump information of the domain via SharpHound:
+
+![*Figure 2.7.1: SharpHound LDAP ingestion tool*](images/Lateral Movement/sharphound.png)
+
+To detect this, we can use a Wazuh ruleset to with several indicators to detect SharpHound: 
+
+- common strings "SpecterOps", "SharpHound", "Collection Method" inside of any binaries 
+- abnormal LDAP queries 
+- Creation of json files 
+- null session enumeration
+
+![*Figure 2.7.2: Wazuh rules for various indicators of SharpHound usage (Shoyemi, 2024)*](images/Lateral Movement/sharphound_rules.png)
+
+
+
+
 ##  2.8 Cover Track
 
 # **3.Malware Attacks and Remediation Plan**
@@ -164,5 +184,8 @@ In short, thanks to Honeypot and Wazuh, Blue Teams can detect, trace, and disrup
 - Wazuh. (2023). Wazuh documentation: Threat detection and response. Retrieved from https://documentation.wazuh.com/
 - MITRE ATT&CK®. (2023). Enterprise attack matrix. Retrieved from https://attack.mitre.org/
 - Offensive Security. (2024). Metasploit Unleashed: Scanning and enumeration. Retrieved from https://www.offensive-security.com/metasploit-unleashed/
+- John Shier, A.G. (2025) It takes Two: The 2025 Sophos Active Adversary Report, Sophos. Available at: https://news.sophos.com/en-us/2025/04/02/2025-sophos-active-adversary-report/ (Accessed: 18 April 2025). 
+- CrowdStrike (no date b) What is lateral movement? Available at: https://www.crowdstrike.com/en-us/cybersecurity-101/cyberattacks/lateral-movement/#:~:text=Lateral%20movement%20refers%20to%20the,and%20other%20high%2Dvalue%20assets. (Accessed: 18 April 2025).
+- Shoyemi, A.D. (2024) Detecting Sharphound Active Directory activities, Wazuh. Available at: https://wazuh.com/blog/detecting-sharphound-active-directory-activities/ (Accessed: 19 April 2025). 
 
 # **7.Appendices**
