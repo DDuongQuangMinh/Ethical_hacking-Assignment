@@ -16,15 +16,9 @@ titlepage-background: "background.pdf"
 
 
 # **1.Introduction**
-Cybersecurity threats are one of the major problems in different countries including strong technological thriving countries such as United State, United Kingdom, and Russia, which target individual, businesses, and governments, causing financial losses, reputational damage, and operational disruptions.
-As organizations continue to store vast amounts of sensitive data, Ethical Hacking plays a crucial role in cybersecurity to protect the information of company and customers by simulating real-world attack to identify vulnerabilities within systems, networks, and applicators. The goal of Ethical Hacking is to understand mindset or tactic of attackers to strengthen security and implement effective countermeasures.
+"Ethical hacking is about building trust by uncovering weaknesses before adversaries exploit them." - Grimes, R. A. (2017)
 
-**Ethical Hacking is structured into five stage that mimic attack circuition:**
-1. Reconnaissance: Collecting target data such as IP address, or network detail by scanning techniques.
-2. Scanning and Enumeration: Analyzing vulnerabilities of target system using tool like Nmap and Nessus.
-3. Gaining access: Gaining unauthorized access to target system through brute-force attack, SQL injection, misconfiguration.
-4. Maintaining access: Enhancing access by deploying backdoor, rootkits, or others stealth techniques can avoid detection.
-5. Cover track: Clearing track to evade detection.
+Ethical hacking play a crucial role in role in enhancing cybersecurity defenses by probing system infrastructure to identify vulnerabilities exist in system. Through authorized and structure testing, ethical hackers stimulate real-time cyberattack to uncover potential security gaps. These actions are vital for strengthening organization security, resilience, protecting sensitive information, and ensuring operational continuity. In a era where cyberthreats evolve quickly and unpredictable, the implementation of ethical hacking practices is critical for maintaining trust, achieving regulatory compliance, and securing digital infrastructures against exploitation.
 
 # **2.Main body**
 ##  2.1 What is Ethical Hacking?
