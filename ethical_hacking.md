@@ -1,7 +1,7 @@
 ---
 title: "Ethical Hacking Assignment"
 author: [HAN23080181, HAN23080514, HAN23100188, HAN23100107, HAN23080227]
-date: '2025-03-30'
+date: '2025-05-02'
 toc: true
 toc-own-page: true
 lang: "en"
@@ -10,6 +10,7 @@ titlepage-text-color: "FFFFFF"
 titlepage-rule-color: "360049"
 titlepage-rule-height: 0
 titlepage-background: "background.pdf"
+toc-own-page: true
 ...
 
 # **Title: Defensive Strategies Against the 5 Phases of Ethical Hacking: A Security Perspective**
@@ -151,7 +152,7 @@ Once the attackers had enough information, they would begin to gain foothold on 
 
 ##  2.7 Maintaining access and Lateral Movement
 
-Once the attacker had foothold, the next thing they would do is to move laterally in the network. Lateral Movement is a set of techniques and tactics attackers uses to move to a higher level targets in a network after gaining initial access. CrowdStrike. One of the first thing attackers would do to move laterally in an Active Directory environment is to enumerate the domain using Bloodhound. Bloodhound is a graphing tool created by SpecterOps to audit the active directory objects for any unintended relationships or rights that can be abused to move laterally within an environment. The first step they would do is to dump information of the domain via SharpHound:
+Once the attacker had foothold, the next thing they would do is to move laterally in the network. Lateral Movement is a set of techniques and tactics attackers uses to move to a higher level targets in a network after gaining initial access, (CrowdStrike). One of the first thing attackers would do to move laterally in an Active Directory environment is to enumerate the domain using Bloodhound. Bloodhound is a graphing tool created by SpecterOps to audit the active directory objects for any unintended relationships or rights that can be abused to move laterally within an environment. The first step they would do is to dump information of the domain via SharpHound:
 
 ![*Figure 2.7.1: SharpHound LDAP ingestion tool*](images/Lateral Movement/sharphound.png)
 
@@ -164,10 +165,40 @@ To detect this, we can use a Wazuh ruleset to with several indicators to detect 
 
 ![*Figure 2.7.2: Wazuh rules for various indicators of SharpHound usage (Shoyemi, 2024)*](images/Lateral Movement/sharphound_rules.png)
 
+![*Figure 2.7.3: Wazuh detecting suspicious LDAP activities from SharpHound*](images/Lateral Movement/wazuh_detection.png)
+
+After the attackers managed to identify which is the target, they would proceed to move laterally in that domains: 
+
+![*Figure 2.7.4: Bloodhound showing target users with DCSync/Replication rights*](images/Lateral Movement/bloodhound.png)
+
+After identifying the accounts with replication rights, the attacker then proceeds to get the credentials of the kiley.briney user and used it with the secretsdump tool. DCSync is a feature for Domain Controllers to "sync" credentials with each other, and is only accessible to Administrators or users with the "DS-Replication-Get-Changes", "DS-Replication-Get-Changes-All" rights (Navali, 2024). 
+
+![*Figure 2.7.5: DCSync with secretsdump*](images/Lateral Movement/dcsync.png)
+
+To detect DCSync attacks, we will configure Wazuh to properly read the sysmon logs: 
+
+```
+  <rule id="110001" level="12">
+    <if_sid>60103</if_sid>
+    <field name="win.system.eventID">^4662$</field>
+    <field name="win.eventdata.properties" type="pcre2">{1131f6aa-9c07-11d1-f79f-00c04fc2dcd2}|{19195a5b-6da0-11d0-afd3-00c04fd930c9}</field>
+    <options>no_full_log</options>
+    <description>Directory Service Access. Possible DCSync attack</description>
+  </rule>
+```
+```
+```
+
+In this case, Wazuh will detect a 4662 event (An operation was performed on an object) and the GUID of the "DS-Replication-Get-Changes-All" and "DS-Replication-Get-Changes", indicating that a DCSync action had been performed on the network (Microsoft). After applying the rules to Wazuh, we will conduct another DCSync attack and Wazuh had successfully detected the attack: 
+
+![*Figure 2.7.6: DCSync detected by Wazuh*](./images/Lateral Movement/dcsync_detect.png)
 
 
+After getting all of the NTLM credentials of the domain, the Adversary would use the hash of the krbtgt account to forge a "golden ticket". A golden ticket is a post-exploitation tactic that adversary often uses to forge legitimate-looking Kerboros Ticket Granting Ticket with the stolen krbtgt NTLM hash which is used to encrypt TGTs (CrowdStrike). A stolen TGT can allow the adversary to become anyone on the domain, while being hard to detect as the ticket looks and operate legitimately unless the attacker make a mistake while creating the fake ticket (wrong domain names, invalid usernames).
 
-##  2.8 Cover Track
+![*Figure 2.7.7: Fabricating a golden ticket with the KRBTGT hash as Administrator*](./images/Lateral Movement/golden-ticket.png)
+
+The only way to prevent this is to rotate the KRBTGT password after a certain period (90-180 days) or right after the sign that there were a DCsync attack.
 
 # **3.Malware Attacks and Remediation Plan**
 
@@ -187,5 +218,10 @@ To detect this, we can use a Wazuh ruleset to with several indicators to detect 
 - John Shier, A.G. (2025) It takes Two: The 2025 Sophos Active Adversary Report, Sophos. Available at: https://news.sophos.com/en-us/2025/04/02/2025-sophos-active-adversary-report/ (Accessed: 18 April 2025). 
 - CrowdStrike (no date b) What is lateral movement? Available at: https://www.crowdstrike.com/en-us/cybersecurity-101/cyberattacks/lateral-movement/#:~:text=Lateral%20movement%20refers%20to%20the,and%20other%20high%2Dvalue%20assets. (Accessed: 18 April 2025).
 - Shoyemi, A.D. (2024) Detecting Sharphound Active Directory activities, Wazuh. Available at: https://wazuh.com/blog/detecting-sharphound-active-directory-activities/ (Accessed: 19 April 2025). 
+- Navali, V. (2024) DCSYNC attack protection against Active Directory, SentinelOne. Available at: https://www.sentinelone.com/blog/active-directory-dcsync-attacks/ (Accessed: 19 April 2025). 
+- Pamnani, V. (no date) 4662(s, F) an operation was performed on an object. - windows 10, 4662(S, F) An operation was performed on an object. - Windows 10 | Microsoft Learn. Available at: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4662 (Accessed: 21 April 2025). 
+- DS-replication-get-changes extended right - win32 apps (no date) Win32 apps | Microsoft Learn. Available at: https://learn.microsoft.com/en-us/windows/win32/adschema/r-ds-replication-get-changes (Accessed: 21 April 2025). 
+
+- CrowdStrike (no date) What is a golden ticket attack?, CrowdStrike. Available at: https://www.crowdstrike.com/en-us/cybersecurity-101/cyberattacks/golden-ticket-attack/ (Accessed: 25 April 2025). 
 
 # **7.Appendices**
