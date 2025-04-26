@@ -192,8 +192,17 @@ After getting all of the NTLM credentials of the domain, the Adversary would use
 
 The only way to prevent this is to rotate the KRBTGT password after a certain period (90-180 days) or right after the sign that there were a DCsync attack.
 
-# **3.Malware Attacks and Remediation Plan**
+# **3. Malware Attacks and Remediation Plan**
 
+By default, most Windows Machines came with Windows Defender antivirus, which by its own is pretty good at blocking malware and potential malicious actions:
+
+![*3.1: Windows Defender blocking mimikatz*](images/malware/mimikatz.png)
+
+AVs like Windows Defender works by actively scanning signatures of files to see if the hash of that file fits known malware samples or some even offers the ability to perform Heuristic Analysis, which looks for anything suspicious within that executable decomplied code that matches with known malwares or dynamic Analysis that run the code inside of a sandbox that would analyze it's behavior and API calls to determine if that executable is malicious or not (Kaspersky). 
+
+But nowadays, attackers would abuse Fileless Malwares to evade Traditional AVs. Fileless Malwares abuses legitimate programs and function to deliver the payload straight to memory, leaving no tracts on hard drives. Attackers would often abuses vulnerable programs or Living off the Land (LOTL) binaries as a delivery system to execute the malware straight inside the memory, leaving no traces on the filesystem (CrowdStrike).
+
+To deal with fileless malwares, large companies and governments had begun using EDR solutions like crowdstrike as the primary way to protect their endpoints. EDR, which is short for "Endpoint Detection and Response" is a cybersecurity solution that can help to better prevent, detect and stop threats on end-user machines (Microsoft). EDRs works by acting as a "black box" for endpoints, which collects information from the client such as Event Logs, Process infos, Traditional antivirus, file creation, logon information such as authentication attempts or users who are currently authenticated, etc. Then, instead of looking for traces of the attack, they would look for indicators of attacks, which are signs that something suspicious or out of the blue is happening, examples such as suspicious outgoing traffic, or match of known adversary TTPs (Tactics, Techniques and Procedures) from threat intelligence databases such as MITRE ATT&CK. EDRs can also monitor system memory and processes in real time to look for anomalies. Then, EDRs can be configured to automatically "quarantine" the client, alert the IT team and begin the process of purging it from the endpoint. 
 
 # **4.Challenges in Securing Network**
 
@@ -221,6 +230,9 @@ The only way to prevent this is to rotate the KRBTGT password after a certain pe
 - Kim, D., & Solomon, M. G. (2016). Fundamentals of information systems security (3rd ed.). Jones & Bartlett Learning.
 - Peltier, T. R. (2016). Information security policies, procedures, and standards: guidelines for effective information security management. CRC Press.
 - Whitman, M. E., & Mattord, H. J. (2017). Principles of information security (6th ed.). Cengage Learning.
+- Kaspersky (2018) What is heuristic analysis?, /. Available at: https://www.kaspersky.com/resource-center/definitions/heuristic-analysis (Accessed: 27 April 2025). 
+- Crowdstrike (no date) What is fileless malware?, CrowdStrike. Available at: https://www.crowdstrike.com/en-us/cybersecurity-101/malware/fileless-malware/ (Accessed: 27 April 2025). 
+- Microsoft (no date) What is EDR? endpoint detection and response: Microsoft security, What Is EDR? Endpoint Detection and Response | Microsoft Security. Available at: https://www.microsoft.com/en-us/security/business/security-101/what-is-edr-endpoint-detection-response (Accessed: 27 April 2025). 
 
 # **7.Appendices**
 No artificial intelligence (AI) tools were used in this assignmnet.
