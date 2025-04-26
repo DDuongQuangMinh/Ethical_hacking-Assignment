@@ -186,8 +186,6 @@ To detect DCSync attacks, we will configure Wazuh to properly read the sysmon lo
     <description>Directory Service Access. Possible DCSync attack</description>
   </rule>
 ```
-```
-```
 
 In this case, Wazuh will detect a 4662 event (An operation was performed on an object) and the GUID of the "DS-Replication-Get-Changes-All" and "DS-Replication-Get-Changes", indicating that a DCSync action had been performed on the network (Microsoft). After applying the rules to Wazuh, we will conduct another DCSync attack and Wazuh had successfully detected the attack: 
 
@@ -196,7 +194,7 @@ In this case, Wazuh will detect a 4662 event (An operation was performed on an o
 
 After getting all of the NTLM credentials of the domain, the Adversary would use the hash of the krbtgt account to forge a "golden ticket". A golden ticket is a post-exploitation tactic that adversary often uses to forge legitimate-looking Kerboros Ticket Granting Ticket with the stolen krbtgt NTLM hash which is used to encrypt TGTs (CrowdStrike). A stolen TGT can allow the adversary to become anyone on the domain, while being hard to detect as the ticket looks and operate legitimately unless the attacker make a mistake while creating the fake ticket (wrong domain names, invalid usernames).
 
-![*Figure 2.7.7: Fabricating a golden ticket with the KRBTGT hash as Administrator*](./images/Lateral Movement/golden-ticket.png)
+![*Figure 2.7.7: Fabricating a golden ticket with the KRBTGT hash as Administrator*](images/Lateral Movement/golden-ticket.png)
 
 The only way to prevent this is to rotate the KRBTGT password after a certain period (90-180 days) or right after the sign that there were a DCsync attack.
 
