@@ -196,9 +196,12 @@ The only way to prevent this is to rotate the KRBTGT password after a certain pe
 
 # **3.Malware Attacks and Remediation Plan**
 
+
 # **4.Challenges in Securing Network**
 
+
 # **5.Conclusion**
+
 
 # **6.References**
 - Stuttard, D., & Pinto, M. (2011). The Web Application Hacker’s Handbook: Finding and Exploiting Security Flaws (2nd ed.). Wiley Publishing.
@@ -215,7 +218,11 @@ The only way to prevent this is to rotate the KRBTGT password after a certain pe
 - Navali, V. (2024) DCSYNC attack protection against Active Directory, SentinelOne. Available at: https://www.sentinelone.com/blog/active-directory-dcsync-attacks/ (Accessed: 19 April 2025). 
 - Pamnani, V. (no date) 4662(s, F) an operation was performed on an object. - windows 10, 4662(S, F) An operation was performed on an object. - Windows 10 | Microsoft Learn. Available at: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4662 (Accessed: 21 April 2025). 
 - DS-replication-get-changes extended right - win32 apps (no date) Win32 apps | Microsoft Learn. Available at: https://learn.microsoft.com/en-us/windows/win32/adschema/r-ds-replication-get-changes (Accessed: 21 April 2025). 
-
-- CrowdStrike (no date) What is a golden ticket attack?, CrowdStrike. Available at: https://www.crowdstrike.com/en-us/cybersecurity-101/cyberattacks/golden-ticket-attack/ (Accessed: 25 April 2025). 
+- CrowdStrike (no date) What is a golden ticket attack?, CrowdStrike. Available at: https://www.crowdstrike.com/en-us/cybersecurity-101/cyberattacks/golden-ticket-attack/ (Accessed: 25 April 2025).
+- Andress, J. (2014). The basics of information security: Understanding the fundamentals of InfoSec (2nd ed.). Syngress.
+- Kim, D., & Solomon, M. G. (2016). Fundamentals of information systems security (3rd ed.). Jones & Bartlett Learning.
+- Peltier, T. R. (2016). Information security policies, procedures, and standards: guidelines for effective information security management. CRC Press.
+- Whitman, M. E., & Mattord, H. J. (2017). Principles of information security (6th ed.). Cengage Learning.
 
 # **7.Appendices**
+No artificial intelligence (AI) tools were used in this assignmnet.
