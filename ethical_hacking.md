@@ -194,15 +194,45 @@ The only way to prevent this is to rotate the KRBTGT password after a certain pe
 
 # **3. Malware Attacks and Remediation Plan**
 
+## 3.1. Malware prevention
+
 By default, most Windows Machines came with Windows Defender antivirus, which by its own is pretty good at blocking malware and potential malicious actions:
 
-![*3.1: Windows Defender blocking mimikatz*](images/malware/mimikatz.png)
+![*3.1.1: Windows Defender blocking mimikatz*](images/malware/mimikatz.png)
 
 AVs like Windows Defender works by actively scanning signatures of files to see if the hash of that file fits known malware samples or some even offers the ability to perform Heuristic Analysis, which looks for anything suspicious within that executable decomplied code that matches with known malwares or dynamic Analysis that run the code inside of a sandbox that would analyze it's behavior and API calls to determine if that executable is malicious or not (Kaspersky). 
 
 But nowadays, attackers would abuse Fileless Malwares to evade Traditional AVs. Fileless Malwares abuses legitimate programs and function to deliver the payload straight to memory, leaving no tracts on hard drives. Attackers would often abuses vulnerable programs or Living off the Land (LOTL) binaries as a delivery system to execute the malware straight inside the memory, leaving no traces on the filesystem (CrowdStrike).
 
-To deal with fileless malwares, large companies and governments had begun using EDR solutions like crowdstrike as the primary way to protect their endpoints. EDR, which is short for "Endpoint Detection and Response" is a cybersecurity solution that can help to better prevent, detect and stop threats on end-user machines (Microsoft). EDRs works by acting as a "black box" for endpoints, which collects information from the client such as Event Logs, Process infos, Traditional antivirus, file creation, logon information such as authentication attempts or users who are currently authenticated, etc. Then, instead of looking for traces of the attack, they would look for indicators of attacks, which are signs that something suspicious or out of the blue is happening, examples such as suspicious outgoing traffic, or match of known adversary TTPs (Tactics, Techniques and Procedures) from threat intelligence databases such as MITRE ATT&CK. EDRs can also monitor system memory and processes in real time to look for anomalies. Then, EDRs can be configured to automatically "quarantine" the client, alert the IT team and begin the process of purging it from the endpoint. 
+To deal with fileless malwares, large companies and governments had begun using EDR solutions like crowdstrike as the primary way to protect their endpoints. EDR, which is short for "Endpoint Detection and Response" is a cybersecurity solution that can help to better prevent, detect and stop threats on end-user machines (Microsoft). EDRs like CrowdStrike's Falcon works by acting as a "black box" for endpoints, which collects information from the client such as Event Logs, Process infos, Traditional antivirus, file creation, login attempts, etc. Then, from these information, they would look out for any and all IoA (indicator of attack) (CrowdStrike). IoAs based detection works by looking for known suspicious actions from threat intelligence databases such as MITRE ATT&&CK that indicates that an attack is underway, for example: 
+
+- Abnormal communication between two endpoints indicating some form of lateral movement 
+
+- Multiple failed password attempts with the same credentials and different usernames each time which indicates a password spraying attempts 
+
+- Abnormal network activity with a suspicious external IP, indicating an attempt to exfiltrate sensitive data.
+
+## 3.2. Malware Remediation plans
+
+While most EDRs are capable of automatic response such as logging off the user, killing the offending process or isolation of the client itself, human intervention is still needed in a lot of cases. According to NIST, there are 4 improtant aspects of incident response: 
+
+- Preparation:
+
+To prepare for possible malware attacks, organizations must first have a system to secure and backup sensitive materials by the 3-2-1 rule, 3 copies of the data, 2 different storage media and one copy of those data is send somewhere else. Additionally, they should keep use endpoint management solution like Microsoft Intune to keep track of all company devices and have a 24/7 SOC (Security operations team) to monitor the system and have EDR installed on all systems (laptops, PCs and servers). Additionally, the EDR should have their response action ready in the event they detect a possible attack.
+
+- Detection and Analysis: 
+
+If the EDR detects a possible ongoing threat, it would execute the prepared response action (if the attacker haven't killed it) and it will alert the SOC staff on duty. Next, the SOC will determine the severity, the source of the attack and plan for the containment response.
+
+- Containment
+
+In this phase, the SOC would trigger a remote lockdown of the compromised endpoint to ensure that the threat is contained, which consist of internet access blocking, desktop blocking, etc. Then, they would identity and disable malicious processes and search the system to find for any form of persistence backdoor (Fortinet). 
+
+- Post incident recovery and assessment
+
+After completely removing the threat, the SOC will need to fix any damage that came from the attack. For example, if the attack was a ransomware one, then they would look for the backups the device made before the attack happened, verify if that backup was safe or not and then restore it to the closest one (Fortinet). Afterwards, they would conduct a post-mortem to identify which security flaws lead to the attack and how they can fix and learn from that security incident (Fortinet).
+
+
 
 # **4.Challenges in Securing Network**
 
@@ -233,6 +263,9 @@ To deal with fileless malwares, large companies and governments had begun using 
 - Kaspersky (2018) What is heuristic analysis?, /. Available at: https://www.kaspersky.com/resource-center/definitions/heuristic-analysis (Accessed: 27 April 2025). 
 - Crowdstrike (no date) What is fileless malware?, CrowdStrike. Available at: https://www.crowdstrike.com/en-us/cybersecurity-101/malware/fileless-malware/ (Accessed: 27 April 2025). 
 - Microsoft (no date) What is EDR? endpoint detection and response: Microsoft security, What Is EDR? Endpoint Detection and Response | Microsoft Security. Available at: https://www.microsoft.com/en-us/security/business/security-101/what-is-edr-endpoint-detection-response (Accessed: 27 April 2025). 
+- Crowdstrike (no date) What is fileless malware?, CrowdStrike. Available at: https://www.crowdstrike.com/en-us/cybersecurity-101/malware/fileless-malware/ (Accessed: 27 April 2025). 
+- Fortinet (no date a) What is a Security Operations Center (SOC)?, Fortinet. Available at: https://www.fortinet.com/resources/cyberglossary/what-is-soc (Accessed: 27 April 2025). 
+- NIST (no date) Computer Security Incident Handling Guide. Available at: https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-61r2.pdf (Accessed: 27 April 2025). 
 
 # **7.Appendices**
 No artificial intelligence (AI) tools were used in this assignmnet.
