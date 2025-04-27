@@ -196,7 +196,7 @@ The only way to prevent this is to rotate the KRBTGT password after a certain pe
 
 
 # **4.Challenges in Securing Network**
-
+Nowadays, modern networks evolve rapidly which increase complexity and interconnectedness, created pressure and challenges to modern security technologies. In addition, hybrid environments such as cloud, mobile, and IoT platforms significantly expand the surface that need to be secured. Although organizations often face advanced persistent threats (APTs), zero-day vulnerabilities, insider risks, and ransomware, the resources spent on security still limit due to budget constraints and a shortage of skilled professionals. Moreover, the growing of artificial intelligence enable attackers to leverage automation, requiring security team adapts new security strategies to ensure resilience and effective threat management.
 
 # **5.Conclusion**
 
