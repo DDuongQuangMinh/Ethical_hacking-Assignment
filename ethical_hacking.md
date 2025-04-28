@@ -208,7 +208,7 @@ To deal with fileless malwares, large companies and governments had begun using 
 Nowadays, modern networks evolve rapidly which increase complexity and interconnectedness, created pressure and challenges to modern security technologies. In addition, hybrid environments such as cloud, mobile, and IoT platforms significantly expand the surface that need to be secured. Although organizations often face advanced persistent threats (APTs), zero-day vulnerabilities, insider risks, and ransomware, the resources spent on security still limit due to budget constraints and a shortage of skilled professionals. Moreover, the growing of artificial intelligence enable attackers to leverage automation, requiring security team adapts new security strategies to ensure resilience and effective threat management.
 
 # **5.Conclusion**
-
+Ethical hacking function as fundamental of network safeguarding for organizations to implement better strategies against increasingly sophisticated cyber threats. It includes identify security weaknesses exist in infrastructure, strengthen network security, and the proactive monitoring of networks to detect and mitigate malicious activities. Ethical hackers apply different approaches to anticipate potential attack vectors and implement preventative measures more effectively. These actions are vital to ensuring CIA triad in organization. Additional, through regular assessment and improvement of security frameworks, ethical hacking enforces resilience of business network infrastructure, thereby upholding the stability and reliability of their digital infrastructures.
 
 # **6.References**
 - Stuttard, D., & Pinto, M. (2011). The Web Application Hacker’s Handbook: Finding and Exploiting Security Flaws (2nd ed.). Wiley Publishing.
