@@ -232,8 +232,6 @@ In this phase, the SOC would trigger a remote lockdown of the compromised endpoi
 
 After completely removing the threat, the SOC will need to fix any damage that came from the attack. For example, if the attack was a ransomware one, then they would look for the backups the device made before the attack happened, verify if that backup was safe or not and then restore it to the closest one (Fortinet). Afterwards, they would conduct a post-mortem to identify which security flaws lead to the attack and how they can fix and learn from that security incident (Fortinet).
 
-
-
 # **4.Challenges in Securing Network**
 Nowadays, modern networks evolve rapidly which increase complexity and interconnectedness, created pressure and challenges to modern security technologies. In addition, hybrid environments such as cloud, mobile, and IoT platforms significantly expand the surface that need to be secured. Although organizations often face advanced persistent threats (APTs), zero-day vulnerabilities, insider risks, and ransomware, the resources spent on security still limit due to budget constraints and a shortage of skilled professionals. Moreover, the growing of artificial intelligence enable attackers to leverage automation, requiring security team adapts new security strategies to ensure resilience and effective threat management.
 
