@@ -1,21 +1,14 @@
 ---
-title: "Ethical Hacking Assignment"
+title: "Defensive Strategies Against the 5 Phases of Ethical Hacking: A Security Perspective"
 author: [HAN23080181, HAN23080514, HAN23100188, HAN23100107, HAN23080227]
 date: '2025-05-02'
 toc: true
 toc-own-page: true
 lang: "en"
-titlepage: true,
-titlepage-text-color: "FFFFFF"
-titlepage-rule-color: "360049"
+titlepage: true
 titlepage-rule-height: 0
-titlepage-background: "background.pdf"
-toc-own-page: true
+titlepage-background: "background1.pdf"
 ...
-
-# **Title: Defensive Strategies Against the 5 Phases of Ethical Hacking: A Security Perspective**
-
-
 # **1.Introduction**
 "Ethical hacking is about building trust by uncovering weaknesses before adversaries exploit them." - Grimes, R. A. (2017)
 
